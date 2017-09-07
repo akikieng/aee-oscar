@@ -79,6 +79,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                #'django.template.context_processors.i18n',
                 'django.contrib.messages.context_processors.messages',
 
                 'oscar.apps.search.context_processors.search_form',
@@ -145,6 +146,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
 
+# copied from https://github.com/django-oscar/django-oscar/blob/master/sandbox/settings.py
+# Path helper
+location = lambda x: os.path.join(os.path.dirname(os.path.realpath(__file__)), x)
+# Absolute path to the directory that holds media.
+# Example: "/home/media/media.lawrence.com/"
+MEDIA_ROOT = location("public/media")
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash if there is a path component (optional in other cases).
+# Examples: "http://media.lawrence.com", "http://example.com/media/"
+MEDIA_URL = '/media/'
+
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
@@ -159,7 +172,7 @@ HAYSTACK_CONNECTIONS = {
 SITE_ID = 1
 
 # https://docs.djangoproject.com/en/1.11/topics/email/#console-backend
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #----------------------------------
 # run debug smtp server, unless console email backend used
@@ -167,5 +180,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # requires
 # python -m smtpd -n -c DebuggingServer localhost:1025
 #----------------------------------
-# EMAIL_HOST = 'localhost'
-# EMAIL_PORT = '1025'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '1025'
