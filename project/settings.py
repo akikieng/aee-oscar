@@ -41,14 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',
+    # 'app',
     'registration',
 
     'django.contrib.sites',
     'django.contrib.flatpages',
     'compressor',
     'widget_tweaks',
-] + get_core_apps()
+] + get_core_apps(['oscar_override_apps.checkout'])
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -182,3 +182,9 @@ SITE_ID = 1
 #----------------------------------
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = '1025'
+
+# http://django-oscar.readthedocs.io/en/latest/ref/settings.html#oscar-required-address-fields
+OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'line4', 'country')
+
+# http://django-oscar.readthedocs.io/en/latest/howto/how_to_disable_an_app_or_feature.html#how-to-disable-oscar-feature
+OSCAR_HIDDEN_FEATURES = ["reviews", "wishlists"]
