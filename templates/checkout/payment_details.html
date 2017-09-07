@@ -1,0 +1,18 @@
+{# copied from https://github.com/django-oscar/django-oscar-datacash/blob/master/sandbox/templates/checkout/payment_details.html #}
+{% extends 'oscar/checkout/payment_details.html' %}
+{% load i18n %}
+
+{% block checkout_title %}{% trans "Payment details" %}{% endblock %}
+
+{% block payment_details_content %}
+
+    Payment is cash on delivery 
+    <br>
+<br>
+
+
+    <form action="{% url 'checkout:preview' %}" class="form-stacked" method="POST">
+        {% csrf_token %}
+        <button type="submit" value="{% trans "Continue" %}" class="btn btn-primary btn-large">{% trans "Continue" %}</button>
+    </form>
+{% endblock %}
