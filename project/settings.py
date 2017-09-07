@@ -176,6 +176,9 @@ SITE_ID = 1
 
 #----------------------------------
 # run debug smtp server, unless console email backend used
+# Note that this will also just display emails in the console,
+# but it will be separate from the django logs
+#
 # https://docs.djangoproject.com/en/1.11/topics/email/#configuring-email-for-development
 # requires
 # python -m smtpd -n -c DebuggingServer localhost:1025
@@ -188,3 +191,7 @@ OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'line4', 'c
 
 # http://django-oscar.readthedocs.io/en/latest/howto/how_to_disable_an_app_or_feature.html#how-to-disable-oscar-feature
 OSCAR_HIDDEN_FEATURES = ["reviews", "wishlists"]
+
+# http://django-oscar.readthedocs.io/en/latest/ref/settings.html#oscar-from-email
+OSCAR_FROM_EMAIL = 'shadi@akikieng.com'
+
