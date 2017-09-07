@@ -195,3 +195,7 @@ OSCAR_HIDDEN_FEATURES = ["reviews", "wishlists"]
 # http://django-oscar.readthedocs.io/en/latest/ref/settings.html#oscar-from-email
 OSCAR_FROM_EMAIL = 'shadi@akikieng.com'
 
+# https://docs.djangoproject.com/en/1.11/ref/settings/#admins
+ADMINS = [
+  ('Shadi', 'shadi@akikieng.com'),
+]
