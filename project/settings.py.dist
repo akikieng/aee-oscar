@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'app',
-    'registration',
+    'django_registration',
 
     'django.contrib.sites',
     'django.contrib.flatpages',

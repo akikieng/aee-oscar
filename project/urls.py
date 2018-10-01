@@ -23,10 +23,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     # The Django admin is not officially supported; expect breakage.
     # Nonetheless, it's often useful for debugging.
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 
-    url(r'', include(application.urls)),
+    url(r'', application.urls),
 
-    # https://django-registration.readthedocs.io/en/2.2/simple-workflow.html#simple-workflow
-    url(r'^accounts/', include('registration.backends.simple.urls')),
+    # https://django-registration.readthedocs.io/en/3.0/simple-workflow.html#simple-workflow
+    url(r'^accounts/', include('django_registration.backends.one_step.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
