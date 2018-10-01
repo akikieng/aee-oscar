@@ -1,6 +1,8 @@
 # aee-oscar
 aee outlet store built on [django-oscar](https://github.com/django-oscar/django-oscar)
 
+Deprecated in favor of [aee-saleor](https://github.com/akikieng/aee-saleor)
+
 
 ## Installation
 
