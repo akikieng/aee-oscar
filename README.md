@@ -36,4 +36,11 @@ django-admin startproject project .
 django-admin startapp app
 # add 'app' to project/settings.py INSTALLED_APPS
 # follow instructions at http://docs.oscarcommerce.com/en/latest/internals/getting_started.html
+
+# to create postgresql database for django
+# https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04
+sudo su - postgres
+psql
+create database aee_oscar;
+...
 ```
